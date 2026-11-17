@@ -1,5 +1,5 @@
 // 오프라인에서도 열리게 — 앱 파일은 먼저 저장해 두고, 글꼴은 처음 받을 때 저장한다
-const CACHE = 'high2-ybm-l34-96645a27d9';
+const CACHE = 'high2-ybm-l34-08e62c8372';
 const CORE = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
